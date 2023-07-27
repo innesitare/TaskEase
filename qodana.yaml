@@ -8,7 +8,3 @@ include:
   - name: ClassCanBeSealed.Local
   - name: DuplicatePropertyInspection
   - name: LoopCanBePartlyConvertedToQuery
-exclude:
-  - name: UnusedAutoPropertyAccessor.Global
-  - name: UnusedAutoPropertyAccessor.Local
-  - name: All
