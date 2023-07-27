@@ -1,0 +1,13 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  name: board-tasks-api
+spec:
+  selector:
+    app: board-tasks-api
+  ports:
+    - protocol: TCP
+      port: 8083
+      targetPort: 80
+  type: ClusterIP
+  
