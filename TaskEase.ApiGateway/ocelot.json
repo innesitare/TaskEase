@@ -1,0 +1,95 @@
+﻿{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/auth/register",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "identity-api",
+          "Port": 8081
+        }
+      ],
+      "UpstreamPathTemplate": "/api/auth/register",
+      "UpstreamHttpMethod": ["POST"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/auth/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "identity-api",
+          "Port": 8081
+        }
+      ],
+      "UpstreamPathTemplate": "/api/auth/login",
+      "UpstreamHttpMethod": ["POST"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/users",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "users-api",
+          "Port": 8082
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users",
+      "UpstreamHttpMethod": ["GET", "POST"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/users/{id:guid}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "users-api",
+          "Port": 8082
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users/{id:guid}",
+      "UpstreamHttpMethod": ["GET", "PUT", "DELETE"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/users/{email}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "users-api",
+          "Port": 8082
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users/{email}",
+      "UpstreamHttpMethod": ["GET"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/board-tasks",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "board-tasks-api",
+          "Port": 8083
+        }
+      ],
+      "UpstreamPathTemplate": "/api/board-tasks",
+      "UpstreamHttpMethod": ["GET", "POST"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/board-tasks/{id:guid}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "board-tasks-api",
+          "Port": 8083
+        }
+      ],
+      "UpstreamPathTemplate": "/api/board-tasks/{id:guid}",
+      "UpstreamHttpMethod": ["GET", "PUT", "DELETE"]
+    }
+  ],
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Namespace": "default",
+      "Type": "KubernetesServiceDiscoveryProvider",
+      "Host": "https://kubernetes.default.svc"
+    }
+  }
+}
