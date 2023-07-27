@@ -1,0 +1,14 @@
+version: "1.0"
+linter: jetbrains/qodana-dotnet:2023.1-eap
+dot-net: 
+  solution: TaskEase.sln
+include:
+  - name: CppThisArgMemberFuncDelegateCtorIsUnsuportedByDotNetCore
+  - name: ClassCanBeSealed.Global
+  - name: ClassCanBeSealed.Local
+  - name: DuplicatePropertyInspection
+  - name: LoopCanBePartlyConvertedToQuery
+exclude:
+  - name: UnusedAutoPropertyAccessor.Global
+  - name: UnusedAutoPropertyAccessor.Local
+  - name: All
