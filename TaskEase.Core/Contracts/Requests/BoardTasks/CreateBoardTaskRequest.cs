@@ -2,7 +2,7 @@
 
 public sealed class CreateBoardTaskRequest
 {
-    public Guid Id { get; init; } = Guid.NewGuid();
+    public Guid Id { get; internal set; } = Guid.NewGuid();
     
     public required string Title { get; init; }
     

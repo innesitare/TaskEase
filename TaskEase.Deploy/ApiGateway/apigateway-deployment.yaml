@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: api-gateway
-          image: plaam/taskease-api-gateway:1.0.0
+          image: plaam/taskease-api-gateway:1.0.7
           imagePullPolicy: Always
           ports:
             - containerPort: 80

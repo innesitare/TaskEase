@@ -1,0 +1,46 @@
+<div class="board-container">
+  <div class="board-title-card">
+    <span class="board-text111"><span>TaskEase</span></span>
+  </div>
+  <div class="board-board">
+    <app-board-column [title]="'Backlog'"
+                      [status]="TaskStatus.Backlog"
+                      [filteredBoardTasks]=boardTasksByStatus(TaskStatus.Backlog)>
+    </app-board-column>
+    <app-board-column [title]="'To-Do'"
+                      [status]="TaskStatus.ToDo"
+                      [filteredBoardTasks]=boardTasksByStatus(TaskStatus.ToDo)>
+    </app-board-column>
+    <app-board-column [title]="'In-Progress'"
+                      [status]="TaskStatus.InProgress"
+                      [filteredBoardTasks]=boardTasksByStatus(TaskStatus.InProgress)>
+    </app-board-column>
+    <app-board-column [title]="'In-Review'"
+                      [status]="TaskStatus.InReview"
+                      [filteredBoardTasks]=boardTasksByStatus(TaskStatus.InReview)>
+    </app-board-column>
+    <app-board-column [title]="'Done'"
+                      [status]="TaskStatus.Done"
+                      [filteredBoardTasks]=boardTasksByStatus(TaskStatus.Done)>
+    </app-board-column>
+    <div class="board-logout-button">
+      <div class="board-group" (click)="performLogout()">
+        <img
+                src="/assets/external/vector3101-w3z.svg"
+                alt="Vector3101"
+                class="board-vector16"
+        />
+        <img
+                src="/assets/external/vector3101-h11b.svg"
+                alt="Vector3101"
+                class="board-vector17"
+        />
+        <img
+                src="/assets/external/vector3101-wwvt.svg"
+                alt="Vector3101"
+                class="board-vector18"
+        />
+      </div>
+    </div>
+  </div>
+</div>

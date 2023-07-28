@@ -4,6 +4,8 @@ public sealed class BoardTask
 {
     public required string Id { get; init; }
     
+    public string? UserId { get; init; }
+    
     public required string Title { get; init; }
     
     public required string Description { get; init; }

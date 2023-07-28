@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: identity-api
-          image: plaam/taskease-identity-api:1.0.0
+          image: plaam/taskease-identity-api:1.1.2
           imagePullPolicy: Always
           ports:
             - containerPort: 80
