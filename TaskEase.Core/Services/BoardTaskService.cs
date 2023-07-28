@@ -1,6 +1,6 @@
 ﻿using Mediator;
 using TaskEase.Core.Helpers;
-using TaskEase.Core.Messages.Commands.BoardTasks;
+using TaskEase.Core.Messages.MediatorCommands.BoardTasks;
 using TaskEase.Core.Messages.Queries.BoardTasks;
 using TaskEase.Core.Services.Abstractions;
 using TaskEase.Domain.BoardTasks;

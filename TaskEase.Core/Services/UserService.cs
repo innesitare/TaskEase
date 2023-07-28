@@ -1,6 +1,6 @@
 ﻿using Mediator;
 using TaskEase.Core.Helpers;
-using TaskEase.Core.Messages.Commands.Users;
+using TaskEase.Core.Messages.MediatorCommands.Users;
 using TaskEase.Core.Messages.Queries.Users;
 using TaskEase.Core.Services.Abstractions;
 using TaskEase.Domain.Users;

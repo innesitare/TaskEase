@@ -1,0 +1,41 @@
+<div class="login-container">
+  <div class="login-login">
+    <div class="login-flex">
+      <div class="login-left-side">
+        <div class="login-container1"></div>
+        <span class="login-text">
+          <span>Log in to your account</span>
+        </span>
+        <span class="login-text02">
+          <span>
+            Advanced task manager designed to streamline your workflow and
+            effortlessly manage your specific tasks.
+          </span>
+        </span>
+        <div class="login-container2"></div>
+        <div class="login-form">
+          <div class="login-form-group">
+            <span class="login-text04"><span>Username</span></span>
+            <input type="text" placeholder class="login-input"  [(ngModel)]="loginRequest.username"/>
+          </div>
+          <div class="login-form-group1">
+            <div class="login-frame1">
+              <span class="login-text06"><span>Password</span></span>
+              <span class="login-text08">
+                <span>Forgot your password?</span>
+              </span>
+            </div>
+            <input type="password" placeholder class="login-input1" [(ngModel)]="loginRequest.password"/>
+          </div>
+          <button class="login-button" (click)="onLoginButtonClick()">
+            <span class="login-text10"><span>Log in</span></span>
+          </button>
+        </div>
+        <span class="login-text12">
+          <span class="login-text13">Do not have an account yet? </span>
+          <span class="login-text08" [routerLink]="['/register']" routerLinkActive="$router_link-active$">Register now, it is free!</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

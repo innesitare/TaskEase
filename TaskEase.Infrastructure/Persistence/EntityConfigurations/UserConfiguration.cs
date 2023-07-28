@@ -31,7 +31,7 @@ public sealed class UserConfiguration : IEntityTypeConfiguration<User>
 
         builder.HasMany(u => u.BoardTasks)
             .WithOne()
-            .HasForeignKey("UserId")
+            .HasForeignKey(bt => bt.UserId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }

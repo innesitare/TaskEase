@@ -1,0 +1,77 @@
+<div class="register-container">
+  <div class="register-register">
+    <div class="register-flex">
+      <div class="register-left-side">
+        <span class="register-text"><span>Create a new account</span></span>
+        <div class="register-container1"></div>
+        <div class="register-container2">
+          <div class="register-form">
+            <div class="register-form-group">
+              <span class="register-text02"><span>Full Name</span></span>
+              <div class="register-frame2">
+                <input
+                  type="text"
+                  placeholder="Danylo"
+                  class="register-input"
+                  [(ngModel)]="registerRequest.name"
+                />
+                <input
+                  type="text"
+                  placeholder="from login"
+                  class="register-input1"
+                  [(ngModel)]="registerRequest.lastName"
+                />
+              </div>
+            </div>
+            <div class="register-form-group1">
+              <span class="register-text04"><span>Username</span></span>
+              <input
+                type="text"
+                placeholder="Priceful"
+                class="register-input2"
+                [(ngModel)]="registerRequest.username"
+              />
+            </div>
+            <div class="register-form-group2">
+              <span class="register-text06"><span>Email</span></span>
+              <input
+                type="text"
+                placeholder="aurelius@rocketmail.com"
+                class="register-input3"
+                [(ngModel)]="registerRequest.email"
+              />
+            </div>
+            <div class="register-form-group3">
+              <div class="register-frame1">
+                <span class="register-text08"><span>Password</span></span>
+              </div>
+              <input
+                type="password"
+                placeholder="••••••••••••••••••••••"
+                class="register-input4"
+                [(ngModel)]="registerRequest.password"
+              />
+            </div>
+            <div class="register-agreement">
+              <span class="register-text10">
+                <span>
+                  By registering you agree to the Terms of Service and Privacy
+                  Policy of TaskEase.com
+                </span>
+              </span>
+            </div>
+            <button class="register-button" (click)="onRegisterButtonClick()">
+              <span class="register-text12"><span>Sign up</span></span>
+            </button>
+          </div>
+        </div>
+        <span class="register-text14">
+          <span class="register-text15">Already have an account?</span>
+          <span class="register-text16" [routerLink]="['/login']" routerLinkActive="$router_link-active$">
+            Login!
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

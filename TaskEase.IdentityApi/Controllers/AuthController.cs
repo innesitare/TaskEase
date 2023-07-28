@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TaskEase.Core.Contracts.Requests.Auth;
 using TaskEase.Core.Helpers;
-using TaskEase.Core.Messages.Commands.Auth;
+using TaskEase.Core.Messages.MediatorCommands.Auth;
 using TaskEase.Core.Messages.Queries.Auth;
 
 namespace TaskEase.IdentityApi.Controllers;
