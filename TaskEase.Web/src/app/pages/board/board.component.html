@@ -1,46 +1,43 @@
 <div class="board-container">
-  <div class="board-title-card">
-    <span class="board-text111"><span>TaskEase</span></span>
-  </div>
-  <div class="board-board">
+<div class="board-title">
+  <span class="board-title-text">
+      <span>TaskEase</span>
+  </span>
+</div>
+  <div cdkDropListGroup>
     <app-board-column [title]="'Backlog'"
-                      [status]="TaskStatus.Backlog"
-                      [filteredBoardTasks]=boardTasksByStatus(TaskStatus.Backlog)>
+                      [status]="TaskStatus.Backlog">
     </app-board-column>
     <app-board-column [title]="'To-Do'"
-                      [status]="TaskStatus.ToDo"
-                      [filteredBoardTasks]=boardTasksByStatus(TaskStatus.ToDo)>
+                      [status]="TaskStatus.ToDo">
     </app-board-column>
     <app-board-column [title]="'In-Progress'"
-                      [status]="TaskStatus.InProgress"
-                      [filteredBoardTasks]=boardTasksByStatus(TaskStatus.InProgress)>
+                      [status]="TaskStatus.InProgress">
     </app-board-column>
     <app-board-column [title]="'In-Review'"
-                      [status]="TaskStatus.InReview"
-                      [filteredBoardTasks]=boardTasksByStatus(TaskStatus.InReview)>
+                      [status]="TaskStatus.InReview">
     </app-board-column>
     <app-board-column [title]="'Done'"
-                      [status]="TaskStatus.Done"
-                      [filteredBoardTasks]=boardTasksByStatus(TaskStatus.Done)>
+                      [status]="TaskStatus.Done">
     </app-board-column>
-    <div class="board-logout-button">
-      <div class="board-group" (click)="performLogout()">
-        <img
-                src="/assets/external/vector3101-w3z.svg"
-                alt="Vector3101"
-                class="board-vector16"
-        />
-        <img
-                src="/assets/external/vector3101-h11b.svg"
-                alt="Vector3101"
-                class="board-vector17"
-        />
-        <img
-                src="/assets/external/vector3101-wwvt.svg"
-                alt="Vector3101"
-                class="board-vector18"
-        />
-      </div>
+  </div>
+  <div class="board-logout-button">
+    <div class="board-logout-svg-group" (click)="performLogout()">
+      <img
+              ngSrc="/assets/external/logout-vector1.svg"
+              alt="Vector3101"
+              class="board-vector16"
+              height="37" width="26"/>
+      <img
+              ngSrc="/assets/external/logout-vector2.svg"
+              alt="Vector3101"
+              class="board-vector17"
+              height="4" width="24"/>
+      <img
+              ngSrc="/assets/external/logout-vector3.svg"
+              alt="Vector3101"
+              class="board-vector18"
+              height="16" width="9"/>
     </div>
   </div>
 </div>

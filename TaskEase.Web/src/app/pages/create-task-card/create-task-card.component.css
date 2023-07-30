@@ -1,0 +1,141 @@
+.frame-2,
+.frame-2 * {
+    box-sizing: border-box;
+}
+.frame-2 {
+    width: 650px;
+    height: 359px;
+    position: relative;
+    overflow: hidden;
+}
+.task-card-background {
+    background: #f4f4f5;
+    width: 650px;
+    height: 359px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.group-1 {
+    position: absolute;
+    inset: 0;
+}
+.rectangle-13 {
+    border-radius: 0;
+    position: absolute;
+    left: 66px;
+    top: 307px;
+    overflow: visible;
+}
+.create {
+    color: #242424;
+    text-align: center;
+    font: 400 14px "Montserrat", sans-serif;
+    position: absolute;
+    left: 68px;
+    top: 307px;
+    width: 514px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.input {
+    gap: 10px;
+    top: 89px;
+    left: 66px;
+    width: 534px;
+    height: 31px;
+    display: flex;
+    padding: 0 20px;
+    position: absolute;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 5px;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid #ccc;
+}
+.input2 {
+    gap: 10px;
+    top: 145px;
+    left: 66px;
+    width: 534px;
+    height: 132px;
+    display: flex;
+    padding: 20px 20px 0;
+    position: absolute;
+    flex-shrink: 0;
+    border-radius: 5px;
+    flex-direction: column;
+    justify-content: center;
+    resize: none;
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid #ccc;
+}
+.task-owner {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 83px;
+    height: 29px;
+    position: absolute;
+    left: 66px;
+    top: 39px;
+    transform-origin: 0 0;
+    transform: rotate(0deg) scale(1, 1);
+}
+.owner-icon {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    position: relative;
+    overflow: hidden;
+}
+.icon {
+    opacity: 0.8;
+    position: absolute;
+    left: 1px;
+    top: 0;
+    overflow: visible;
+}
+.owner-name {
+    color: rgba(128, 135, 143, 0.7);
+    text-align: left;
+    font: 400 18px "Montserrat", sans-serif;
+    position: relative;
+}
+.vertical-rectangle-0 {
+    position: absolute;
+    width: 40px;
+    height: 400px;
+    background-color: rgb(43, 55, 67);
+}
+.vertical-rectangle-1 {
+    position: absolute;
+    width: 40px;
+    height: 400px;
+    background-color: rgb(93, 201, 136);
+}
+.vertical-rectangle-2 {
+    position: absolute;
+    width: 40px;
+    height: 400px;
+    background-color: rgb(222, 89, 51);
+}
+.vertical-rectangle-3 {
+    position: absolute;
+    width: 40px;
+    height: 400px;
+    background-color: rgb(35, 109, 179);
+}
+.vertical-rectangle-4 {
+    position: absolute;
+    width: 40px;
+    height: 400px;
+    background-color: rgb(150, 96, 244);
+}

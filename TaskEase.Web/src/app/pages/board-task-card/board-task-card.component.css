@@ -1,0 +1,106 @@
+.board-task-card {
+    gap: 10px;
+    display: flex;
+    padding: 16px 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05000000074505806) ;
+    align-items: center;
+    border-color: rgba(240, 240, 240, 1);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 6px;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 1);
+}
+.board-task-card-details {
+    gap: 12px;
+    display: flex;
+    padding: 0 1px;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.board-task-card-header {
+    gap: 8px;
+    width: 295px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    flex-direction: column;
+}
+.board-task-card-title-cross {
+    width: 294px;
+    height: 14px;
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 1;
+}
+.board-task-card-cross-vector {
+    top: 2px;
+    left: 282px;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+}
+.board-task-card-title {
+    color: rgba(0, 0, 0, 1);
+    width: 281px;
+    height: auto;
+    position: absolute;
+    font-size: 16px;
+    text-align: left;
+    font-family: Montserrat, serif;
+    font-weight: 500;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.board-task-card-description-header {
+    width: 231px;
+    height: 20px;
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 1;
+}
+.board-task-card-description-text {
+    color: rgba(115, 117, 121, 1);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 300px;
+    height: auto;
+    position: absolute;
+    font-size: 16px;
+    text-align: left;
+    font-family: Montserrat, serif;
+    font-weight: 500;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.board-task-card-assignee {
+    gap: 4px;
+    display: flex;
+    align-items: center;
+}
+.board-task-card-assignee-name {
+    color: rgba(128, 135, 143, 1);
+    height: auto;
+    font-size: 13px;
+    text-align: left;
+    font-family: Montserrat, serif;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.board-task-card-assignee-icon {
+    width: 14px;
+    height: 14px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 0;
+}

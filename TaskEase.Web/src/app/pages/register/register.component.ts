@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core'
-import {AuthService} from "../../services/auth.service";
-import {RegisterRequest} from "../../models/requests/register-request.model";
-import {Router} from "@angular/router";
+import { Component } from '@angular/core';
+import { AuthService } from "../../services/auth.service";
+import { ErrorNotificationService } from "../../services/error-notification.service";
+import { RegisterRequest } from "../../models/requests/register-request.model";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -15,19 +16,27 @@ export class RegisterComponent {
     username: '',
     email: '',
     password: '',
-  }
+  };
 
-  constructor(private authService: AuthService, private router: Router) {
-  }
+  constructor(
+      public errorNotificationService: ErrorNotificationService,
+      private authService: AuthService,
+      private router: Router
+  ) {}
 
   async onRegisterButtonClick(): Promise<void> {
-    let token = await this.authService.register(this.registerRequest);
-    if (token === null) {
-      console.error("Cannot retrieve token from register request!");
-      return;
-    }
+    try {
+      const token = await this.authService.register(this.registerRequest);
+      if (!token) {
+        this.errorNotificationService.showErrorNotification("Cannot retrieve token from register request!");
+        return;
+      }
 
-    localStorage.setItem('jwt-token', token)
-    await this.router.navigate(['/tasks']);
+      localStorage.setItem('jwt-token', token);
+      await this.router.navigate(['/board']);
+    } catch (error) {
+      console.error("An error occurred during registration:", error);
+      this.errorNotificationService.showErrorNotification("An error occurred during registration. Please try again.");
+    }
   }
 }

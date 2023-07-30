@@ -1,0 +1,53 @@
+<div class="frame-2">
+    <div class="task-card-background"></div>
+    <div class="group-1">
+        <svg
+                class="rectangle-13"
+                width="534"
+                height="32"
+                viewBox="0 0 534 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                    d="M0 5C0 2.23858 2.23858 0 5 0H528.919C531.68 0 533.919 2.23858 533.919 5V26.6045C533.919 29.3659 531.68 31.6045 528.919 31.6045H5C2.23858 31.6045 0 29.3659 0 26.6045V5Z"
+                    fill="white"
+            />
+        </svg>
+        <div class="create" (click)="createNewBoardTask()">Create</div>
+    </div>
+    <input type="text" class="input" [(ngModel)]="request.title" />
+    <textarea placeholder class="input2" [(ngModel)]="request.description"></textarea>
+    <div class="task-owner">
+        <div class="owner-icon">
+            <svg
+                    class="icon"
+                    width="12"
+                    height="15"
+                    viewBox="0 0 12 15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+            >
+                <g opacity="0.8">
+                    <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M1.59251 11.0502H10.2293L12 4.46177L8.87837 5.85717L5.92362 0.5L3.41188 5.7751L0 4.46177L1.59251 11.0502Z"
+                            fill="#F4C550"
+                            stroke="#EE9241"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                    />
+                    <path
+                            d="M2.44739 13.3953H9.43996"
+                            stroke="#F2A867"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                    />
+                </g>
+            </svg>
+        </div>
+        <div class="owner-name">Empty</div>
+    </div>
+    <div class="vertical-rectangle-{{request.status}}"></div>
+</div>

@@ -35,6 +35,11 @@
           <span class="login-text13">Do not have an account yet? </span>
           <span class="login-text08" [routerLink]="['/register']" routerLinkActive="$router_link-active$">Register now, it is free!</span>
         </span>
+        <span class="login-text12">
+          <div *ngIf="errorNotificationService.showError">
+            <span class="error-notification-login-text">{{ errorNotificationService.errorMessage }}</span>
+          </div>
+        </span>
       </div>
     </div>
   </div>

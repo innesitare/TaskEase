@@ -11,14 +11,18 @@
               <div class="register-frame2">
                 <input
                   type="text"
-                  placeholder="Danylo"
+                  placeholder="Daniel"
                   class="register-input"
+                  minlength="1"
+                  maxlength="50"
                   [(ngModel)]="registerRequest.name"
                 />
                 <input
                   type="text"
-                  placeholder="from login"
+                  placeholder="Flinch"
                   class="register-input1"
+                  minlength="1"
+                  maxlength="50"
                   [(ngModel)]="registerRequest.lastName"
                 />
               </div>
@@ -27,16 +31,18 @@
               <span class="register-text04"><span>Username</span></span>
               <input
                 type="text"
-                placeholder="Priceful"
+                placeholder="Pings"
                 class="register-input2"
+                minlength="3"
+                maxlength="15"
                 [(ngModel)]="registerRequest.username"
               />
             </div>
             <div class="register-form-group2">
               <span class="register-text06"><span>Email</span></span>
               <input
-                type="text"
-                placeholder="aurelius@rocketmail.com"
+                type="email"
+                placeholder="aurelius@gmail.com"
                 class="register-input3"
                 [(ngModel)]="registerRequest.email"
               />
@@ -47,7 +53,7 @@
               </div>
               <input
                 type="password"
-                placeholder="••••••••••••••••••••••"
+                placeholder="•••••••••••••••••••"
                 class="register-input4"
                 [(ngModel)]="registerRequest.password"
               />
@@ -70,6 +76,11 @@
           <span class="register-text16" [routerLink]="['/login']" routerLinkActive="$router_link-active$">
             Login!
           </span>
+        </span>
+        <span class="error-text-1">
+          <div *ngIf="errorNotificationService.showError">
+            <span class="error-notification-register-text">{{ errorNotificationService.errorMessage }}</span>
+          </div>
         </span>
       </div>
     </div>

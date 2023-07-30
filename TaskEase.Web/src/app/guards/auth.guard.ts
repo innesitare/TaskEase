@@ -16,6 +16,6 @@ export class AuthGuard {
   }
 }
 
-export const authGuardFactory = (auth: AuthService, router: Router) => {
+export function authGuardFactory(auth: AuthService, router: Router): AuthGuard {
   return new AuthGuard(auth, router);
-};
+}
