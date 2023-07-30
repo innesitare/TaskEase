@@ -7,14 +7,6 @@ internal sealed class UpdateBoardTaskRequestValidator : AbstractValidator<Update
 {
     public UpdateBoardTaskRequestValidator()
     {
-        RuleFor(x => x.Id)
-            .NotEmpty()
-            .WithMessage("Task Id must be provided.");
-                
-        RuleFor(x => x.UserId)
-            .NotEmpty()
-            .WithMessage("User Id must be provided.");
-
         RuleFor(x => x.Title)
             .NotNull()
             .NotEmpty()

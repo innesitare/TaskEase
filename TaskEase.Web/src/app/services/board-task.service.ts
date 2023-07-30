@@ -1,8 +1,8 @@
-import {EventEmitter, Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {lastValueFrom, Observable} from 'rxjs';
-import { map } from 'rxjs/operators';
-import {BoardTask} from "../models/board-tasks/board-task.model";
+import { EventEmitter, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { lastValueFrom } from 'rxjs';
+import { BoardTask } from '../models/board-tasks/board-task.model';
+import { CreateBoardTaskRequest } from '../models/requests/board-tasks/create-board-task-request.model';
 
 const apiUrl = 'http://localhost:8080/api/board-tasks';
 
@@ -10,35 +10,28 @@ const apiUrl = 'http://localhost:8080/api/board-tasks';
   providedIn: 'root'
 })
 export class BoardTaskService {
-  dataDeleter: EventEmitter<void> = new EventEmitter<void>();
+  dataDeleter = new EventEmitter<void>();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) {}
+
+  getAllBoardTasks(): Promise<BoardTask[]> {
+    return lastValueFrom<BoardTask[]>(this.http.get<BoardTask[]>(apiUrl));
   }
 
-  async getAllBoardTasks(): Promise<BoardTask[]> {
-    return await lastValueFrom<BoardTask[]>(this.http.get<BoardTask[]>(apiUrl));
+  getBoardTaskById(taskId: string): Promise<BoardTask> {
+    return lastValueFrom<BoardTask>(this.http.get<BoardTask>(`${apiUrl}/${taskId}`));
   }
 
-  getBoardTaskById(id: string): Observable<BoardTask> {
-    return this.http.get<BoardTask>(`${apiUrl}/${id}`).pipe(
-        map(response => response)
-    );
+  createBoardTask(request: CreateBoardTaskRequest): Promise<BoardTask> {
+    return lastValueFrom<BoardTask>(this.http.post<BoardTask>(apiUrl, request));
   }
 
-  createBoardTask(taskData: BoardTask): Observable<BoardTask> {
-    return this.http.post<BoardTask>(apiUrl, taskData).pipe(
-        map(response => response)
-    );
+  updateBoardTask(id: string, taskData: BoardTask): Promise<BoardTask> {
+    return lastValueFrom<BoardTask>(this.http.put<BoardTask>(`${apiUrl}/${id}`, taskData));
   }
 
-  updateBoardTask(id: string, taskData: BoardTask): Observable<BoardTask> {
-    return this.http.put<BoardTask>(`${apiUrl}/${id}`, taskData).pipe(
-        map(response => response)
-    );
-  }
-
-  async deleteBoardTask(id: string): Promise<any>{
-    await lastValueFrom<any>(this.http.delete<any>(`${apiUrl}/${id}`));
+  async deleteBoardTask(id: string): Promise<void> {
+    await lastValueFrom<void>(this.http.delete<void>(`${apiUrl}/${id}`));
     this.dataDeleter.emit();
   }
 }

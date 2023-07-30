@@ -60,7 +60,7 @@ internal sealed class BoardTaskService : IBoardTaskService
         
         return isUpdated;
     }
-
+    
     public async Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken)
     {
         bool isDeleted = await _sender.Send(new DeleteBoardTaskCommand

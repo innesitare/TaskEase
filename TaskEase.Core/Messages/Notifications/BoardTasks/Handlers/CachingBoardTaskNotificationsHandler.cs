@@ -23,6 +23,7 @@ public sealed class CachingBoardTaskNotificationsHandler :
         var boardTask = notification.BoardTask;
 
         await _cacheService.RemoveCachesAsync(cancellationToken,
+            CacheKeys.User.GetAll,
             CacheKeys.BoardTask.GetAll,
             CacheKeys.BoardTask.Get(boardTask.Id)
         );
@@ -33,6 +34,7 @@ public sealed class CachingBoardTaskNotificationsHandler :
         var boardTask = notification.BoardTask;
 
         await _cacheService.RemoveCachesAsync(cancellationToken,
+            CacheKeys.User.GetAll,
             CacheKeys.BoardTask.GetAll,
             CacheKeys.BoardTask.Get(boardTask.Id)
         );
@@ -43,6 +45,7 @@ public sealed class CachingBoardTaskNotificationsHandler :
         var boardTask = notification.BoardTask;
 
         await _cacheService.RemoveCachesAsync(cancellationToken,
+            CacheKeys.User.GetAll,
             CacheKeys.BoardTask.GetAll,
             CacheKeys.BoardTask.Get(boardTask.Id)
         );

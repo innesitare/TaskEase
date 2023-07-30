@@ -1,19 +1,16 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor
-} from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable()
 export class DefaultHeadersInterceptor implements HttpInterceptor {
-
-  constructor() {}
+  private readonly excludedUrls = [
+    'http://localhost:8080/api/auth/login',
+    'http://localhost:8080/api/auth/register'
+  ];
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    if (request.url.includes('http://localhost:8080/api/auth/login') || request.url.includes('http://localhost:8080/api/auth/register')){
+    if (this.isExcludedUrl(request.url)) {
       return next.handle(request);
     }
 
@@ -28,5 +25,9 @@ export class DefaultHeadersInterceptor implements HttpInterceptor {
     });
 
     return next.handle(modifiedRequest);
+  }
+
+  private isExcludedUrl(url: string): boolean {
+    return this.excludedUrls.some(excludedUrl => url.includes(excludedUrl));
   }
 }

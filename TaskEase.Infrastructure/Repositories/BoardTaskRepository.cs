@@ -13,7 +13,7 @@ public sealed class BoardTaskRepository : IBoardTaskRepository
     {
         _applicationDbContext = applicationDbContext;
     }
-    
+
     public async Task<IEnumerable<BoardTask>> GetAllAsync(CancellationToken cancellationToken)
     {
         bool isEmpty = await _applicationDbContext.BoardTasks.AnyAsync(cancellationToken);

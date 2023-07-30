@@ -51,12 +51,13 @@ public sealed class BoardTasksController : ControllerBase
 
 
     [HttpPut(ApiEndpoints.BoardTask.Update)]
-    public async Task<IActionResult> Update([FromBody, FromRoute] UpdateBoardTaskRequest request,
+    public async Task<IActionResult> Update([FromRoute] Guid taskId, [FromRoute] Guid? userId,
+        [FromBody] UpdateBoardTaskRequest request,
         CancellationToken cancellationToken)
     {
-        var boardTask = request.ToBoardTask();
+        var boardTask = request.ToBoardTask(taskId, userId);
         var updatedBoardTask = await _boardTaskService.UpdateAsync(boardTask, cancellationToken);
-
+    
         return updatedBoardTask is not null
             ? Ok(boardTask.ToResponse())
             : NotFound();

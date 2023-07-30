@@ -14,7 +14,7 @@ public static partial class BoardTaskMapper
     
     public static partial BoardTask ToBoardTask(this UpdateBoardTaskRequest request);
     
-    public static BoardTask ToBoardTask(this UpdateBoardTaskRequest request, Guid taskId, Guid userId)
+    public static BoardTask ToBoardTask(this UpdateBoardTaskRequest request, Guid taskId, Guid? userId)
     {
         request.Id = taskId;
         request.UserId = userId;

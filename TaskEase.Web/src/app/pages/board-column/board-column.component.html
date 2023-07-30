@@ -1,30 +1,23 @@
-
-<div class="board-{{title.toLowerCase()}}">
+<div class="board-column-title-{{title.toLowerCase()}}">
     <div class="board-status-card">
-        <div class="board-status-{{status}}">
-            <span class="board-text025"><span>{{title.replace('-', ' ')}}</span></span>
+        <div class="board-column-status-{{status}}">
+            <span class="board-column-title-text">
+                <span>{{title.replace('-', ' ')}}</span>
+            </span>
         </div>
     </div>
 </div>
-<div class="board-{{title.toLowerCase()}}-tasks">
-    <div *ngFor="let task of filteredBoardTasks">
-        <ng-container *ngIf="task.status === status">
-            <app-board-task [id]="task.id"
-                            [title]="task.title"
-                            [description]="task.description"
-                            [status]="task.status">
-
-            </app-board-task>
-        </ng-container>
+<div class="board-column-{{title.toLowerCase()}}-tasks"
+     cdkDropList
+     [cdkDropListData]="filteredBoardTasks"
+     (cdkDropListDropped)="drop($event)">
+    <div *ngFor="let task of filteredBoardTasks" cdkDrag [cdkDragData]="task">
+        <app-board-task-card [task]="task"></app-board-task-card>
     </div>
-    <div class="board-task-card04">
-        <div class="board-details04">
-            <div class="board-task-details04">
-                <div class="board-header08">
-                    <div class="board-ttile-due-date08">
-                        <span class="board-text024">+</span>
-                    </div>
-                </div>
+    <div class="board-task-card-add">
+        <div class="board-task-card-add-details">
+            <div class="board-task-card-add-title">
+                <span class="board-task-card-add-title-text" (click)="onCreateButtonClick()">+</span>
             </div>
         </div>
     </div>

@@ -5,9 +5,8 @@ import {LoginComponent} from "./pages/login/login.component";
 import {RegisterComponent} from "./pages/register/register.component";
 import {BoardComponent} from "./pages/board/board.component";
 import {AuthGuard} from "./guards/auth.guard";
-import {TaskCardComponent} from "./pages/task-card/task-card.component";
 
-const routes: Routes =[
+const routes: Routes = [
   {
     path: 'login', component: LoginComponent
   },
@@ -15,10 +14,7 @@ const routes: Routes =[
     path: 'register', component: RegisterComponent
   },
   {
-    path: 'tasks', component: BoardComponent, canActivate: [AuthGuard]
-  },
-  {
-    path: 'task-card', component: TaskCardComponent, canActivate: [AuthGuard]
+    path: 'board', component: BoardComponent, canActivate: [AuthGuard]
   }
 ]
 
@@ -26,10 +22,10 @@ const routes: Routes =[
   declarations: [],
   imports: [
     CommonModule,
-      RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes)
   ],
   exports: [
-      RouterModule
+    RouterModule
   ]
 })
 export class AppRoutingModule { }

@@ -1,0 +1,42 @@
+<div class="board-task-card">
+    <div class="board-details">
+        <div class="board-task-card-details">
+            <div class="board-task-card-header">
+                <div class="board-task-card-title-cross">
+                    <div class="board-task-card-icon" (click)="deleteBoardTask(); ">
+                        <img
+                                ngSrc="/assets/external/cross-vector.svg"
+                                alt="Vector3034"
+                                class="board-task-card-cross-vector"
+                                height="12" width="13"/>
+                    </div>
+                    <span class="board-task-card-title"><span>{{this.task.title}}</span></span>
+                </div>
+            </div>
+            <div class="board-task-card-description-header">
+                <span class="board-task-card-description-text">
+                    <span>{{this.task.description}}</span>
+                </span>
+            </div>
+            <div class="board-task-card-assignee">
+                <div class="board-task-card-assignee-icon">
+                    <div class="board-task-card-assignee-icon-vector">
+                        <img
+                                ngSrc="/assets/external/assignee-vector1.svg"
+                                alt="Path2I303"
+                                class="board-path2"
+                                height="12" width="14"/>
+                        <img
+                                ngSrc="/assets/external/assignee-vector2.svg"
+                                alt="Path4I303"
+                                class="board-path4"
+                                height="2" width="9"/>
+                    </div>
+                </div>
+                <span class="board-task-card-assignee-name">
+                    <span>{{ assigneeName }}</span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

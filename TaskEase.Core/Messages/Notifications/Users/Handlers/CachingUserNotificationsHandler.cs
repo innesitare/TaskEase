@@ -47,6 +47,7 @@ public sealed class CachingUserNotificationsHandler :
 
         await _cacheService.RemoveCachesAsync(cancellationToken, boardTaskIds!.ToArray());
         await _cacheService.RemoveCachesAsync(cancellationToken,
+            CacheKeys.BoardTask.GetAll,
             CacheKeys.User.Get(user!.Id),
             CacheKeys.User.GetByEmail(user.Email)
         );
