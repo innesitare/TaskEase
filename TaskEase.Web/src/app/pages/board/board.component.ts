@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+
 import { TaskStatus } from "../../models/board-tasks/task-status.model";
 import { AuthService } from "../../services/auth.service";
-import { Router } from "@angular/router";
 import { BoardTask } from "../../models/board-tasks/board-task.model";
 import { BoardTaskService } from "../../services/board-task.service";
 
@@ -12,16 +13,16 @@ import { BoardTaskService } from "../../services/board-task.service";
 })
 export class BoardComponent implements OnInit {
   readonly TaskStatus = TaskStatus;
-  boardTasks: BoardTask[];
+  boardTasks: BoardTask[] = [];
 
   constructor(
-      private authService: AuthService,
+      public authService: AuthService,
       private router: Router,
       private boardTaskService: BoardTaskService
-  ) {}
+  ) { }
 
-  ngOnInit() {
-    this.fetchAllBoardTasks();
+  async ngOnInit(): Promise<void> {
+    await this.fetchAllBoardTasks();
   }
 
   async performLogout(): Promise<void> {

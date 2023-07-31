@@ -23,6 +23,8 @@ import { CreateTaskCardComponent } from './pages/create-task-card/create-task-ca
 
 import { DefaultHeadersInterceptor } from "./interceptors/default-headers.interceptor";
 import { AuthGuard, authGuardFactory } from "./guards/auth.guard";
+import { UpdateTaskCardComponent } from './pages/update-task-card/update-task-card.component';
+import { AssignTaskCardComponent } from './pages/assign-task-card/assign-task-card.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { AuthGuard, authGuardFactory } from "./guards/auth.guard";
     BoardTaskCardComponent,
     BoardComponent,
     BoardColumnComponent,
-    CreateTaskCardComponent
+    CreateTaskCardComponent,
+    UpdateTaskCardComponent,
+    AssignTaskCardComponent
   ],
     imports: [
         BrowserModule,
@@ -61,5 +65,4 @@ import { AuthGuard, authGuardFactory } from "./guards/auth.guard";
     ErrorNotificationService
   ]
 })
-
 export class AppModule {}

@@ -5,17 +5,14 @@ import {LoginComponent} from "./pages/login/login.component";
 import {RegisterComponent} from "./pages/register/register.component";
 import {BoardComponent} from "./pages/board/board.component";
 import {AuthGuard} from "./guards/auth.guard";
+import {UpdateTaskCardComponent} from "./pages/update-task-card/update-task-card.component";
+import {AssignTaskCardComponent} from "./pages/assign-task-card/assign-task-card.component";
 
 const routes: Routes = [
-  {
-    path: 'login', component: LoginComponent
-  },
-  {
-    path: 'register', component: RegisterComponent
-  },
-  {
-    path: 'board', component: BoardComponent, canActivate: [AuthGuard]
-  }
+  { path: '', redirectTo: '/board', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'board', component: BoardComponent, canActivate: [AuthGuard] }
 ]
 
 @NgModule({

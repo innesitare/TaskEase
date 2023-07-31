@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 import { BoardTask } from '../models/board-tasks/board-task.model';
 import { CreateBoardTaskRequest } from '../models/requests/board-tasks/create-board-task-request.model';
+import { UpdateBoardTaskRequest } from "../models/requests/board-tasks/update-board-task-request.model";
 
 const apiUrl = 'http://localhost:8080/api/board-tasks';
 
@@ -26,8 +27,8 @@ export class BoardTaskService {
     return lastValueFrom<BoardTask>(this.http.post<BoardTask>(apiUrl, request));
   }
 
-  updateBoardTask(id: string, taskData: BoardTask): Promise<BoardTask> {
-    return lastValueFrom<BoardTask>(this.http.put<BoardTask>(`${apiUrl}/${id}`, taskData));
+  updateBoardTask(request: UpdateBoardTaskRequest): Promise<BoardTask> {
+    return lastValueFrom<BoardTask>(this.http.put<BoardTask>(`${apiUrl}/${request.id}/${request.user ? request.user.id : ''}`, request));
   }
 
   async deleteBoardTask(id: string): Promise<void> {

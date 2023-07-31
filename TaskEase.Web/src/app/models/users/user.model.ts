@@ -4,5 +4,6 @@ export interface User {
     id: string;
     name: string;
     lastName: string;
+    isSelected: boolean;
     assignedTasks: BoardTask[]
 }
