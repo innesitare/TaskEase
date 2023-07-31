@@ -1,0 +1,166 @@
+.update-task-card,
+.update-task-card * {
+    box-sizing: border-box;
+}
+.update-task-card {
+    background: #f4f4f5;
+    width: 650px;
+    height: 360px;
+    position: relative;
+    overflow: hidden;
+}
+.update-task-card-title {
+    background: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 0 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
+    width: 534px;
+    height: 31px;
+    position: absolute;
+    left: 66px;
+    top: 82px;
+}
+.update-task-card-description {
+    background: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 20px 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    width: 534px;
+    height: 145px;
+    position: absolute;
+    left: 66px;
+    top: 138px;
+    resize: none;
+}
+.update-task-card-owner {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 83px;
+    height: 29px;
+    position: absolute;
+    left: 66px;
+    top: 35px;
+    transform-origin: 0 0;
+    transform: rotate(0deg) scale(1, 1);
+}
+.update-task-card-owner-icon {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    position: relative;
+    overflow: hidden;
+}
+.icon {
+    opacity: 0.800000011920929;
+    position: absolute;
+    left: 1px;
+    top: 0px;
+    overflow: visible;
+}
+.update-task-card-owner-name {
+    color: rgba(128, 135, 143, 0.7);
+    text-align: left;
+    font: 400 18px "Montserrat", sans-serif;
+    position: relative;
+    cursor: pointer;
+}
+.group-2 {
+    position: absolute;
+    inset: 0;
+}
+.update-task-card-button-background {
+    border-radius: 0px;
+    position: absolute;
+    width: 534px;
+    left: 66px;
+    top: 314px;
+    overflow: visible;
+}
+.update-task-card-button-text {
+    color: #242424;
+    text-align: center;
+    font: 400 14px "Montserrat", sans-serif;
+    position: absolute;
+    left: 68px;
+    top: 314px;
+    width: 534px;
+    height: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.update-task-card-status {
+    position: absolute;
+    inset: 0;
+}
+.update-task-card-status-title {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 73px;
+    height: 28px;
+    position: absolute;
+    left: 532px;
+    top: 32px;
+    transform-origin: 0 0;
+    transform: rotate(0deg) scale(1, 1);
+}
+.update-task-card-status-title-text {
+    color: rgba(128, 135, 143, 0.7);
+    text-align: left;
+    font: 400 18px "Montserrat", sans-serif;
+    position: relative;
+}
+.update-task-card-status-rectangle {
+    border-radius: 0px;
+    position: absolute;
+    left: 534px;
+    top: 60px;
+    transform: translate(0px, -3px);
+    overflow: visible;
+    background-color: #BF2626;
+}
+.vertical-rectangle-0 {
+    position: absolute;
+    width: 40px;
+    height: 400px;
+    background-color: rgb(43, 55, 67);
+}
+.vertical-rectangle-1 {
+    position: absolute;
+    width: 40px;
+    height: 400px;
+    background-color: rgb(93, 201, 136);
+}
+.vertical-rectangle-2 {
+    position: absolute;
+    width: 40px;
+    height: 400px;
+    background-color: rgb(222, 89, 51);
+}
+.vertical-rectangle-3 {
+    position: absolute;
+    width: 40px;
+    height: 400px;
+    background-color: rgb(35, 109, 179);
+}
+.vertical-rectangle-4 {
+    position: absolute;
+    width: 40px;
+    height: 400px;
+    background-color: rgb(150, 96, 244);
+}

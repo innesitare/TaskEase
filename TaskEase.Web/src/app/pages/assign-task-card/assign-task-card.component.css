@@ -1,0 +1,90 @@
+.assign-task-card,
+.assign-task-card * {
+    box-sizing: border-box;
+}
+.assign-task-card {
+    background: #ffffff;
+    border-radius: 6px;
+    border-style: solid;
+    border-color: #f0f0f0;
+    border-width: 1px;
+    padding: 12px 10px 8px 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    width: 243px;
+    height: 169px;
+    top: 40px;
+    left: 357px;
+    position: relative;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05);
+    flex-direction: column;
+    align-items: flex-start;
+}
+.assign-task-card-title-header {
+    border-radius: 2px;
+    padding: 5px 40px 5px 7px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+    right: 30px;
+    bottom: 5px;
+}
+.assign-task-card-input-text {
+    background: #E5E5E5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font: 400 12px "Montserrat", sans-serif;
+    padding: 0 20px 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
+    width: 220px;
+    height: 25px;
+    right: 10px;
+    position: absolute;
+}
+.searched-user {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    width: 115px;
+    height: 24px;
+}
+.search-username {
+    color: #000000;
+    text-align: left;
+    font: 400 13px "Montserrat", sans-serif;
+    flex-direction: inherit;
+    margin-left: 8px;
+    left: 18px;
+    top: -3px;
+    transform-origin: 0 0;
+    transform: rotate(0deg) scale(1, 1);
+}
+.searched-user-full-name {
+    color: rgba(0, 0, 0, 0.63);
+    text-align: left;
+    font: 300 11px "Montserrat", sans-serif;
+    flex-direction: inherit;
+    margin-left: 8px;
+    left: 18px;
+    top: 14px;
+    width: 97px;
+    height: 7px;
+    transform-origin: 0 0;
+    transform: rotate(0deg) scale(1, 1);
+}
+.scrollable-list {
+    height: 118px;
+    width: 100%;
+    overflow: auto;
+}
+.user-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}

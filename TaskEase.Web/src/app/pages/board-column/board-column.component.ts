@@ -1,13 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 
 import { TaskStatus } from '../../models/board-tasks/task-status.model';
 import { BoardTask } from '../../models/board-tasks/board-task.model';
 import { BoardTaskService } from '../../services/board-task.service';
 import { CreateTaskCardComponent } from '../create-task-card/create-task-card.component';
+import { UpdateBoardTaskRequest } from '../../models/requests/board-tasks/update-board-task-request.model';
+import { UpdateTaskCardComponent } from '../update-task-card/update-task-card.component';
+import { BoardTaskCardComponent } from '../board-task-card/board-task-card.component';
 
 @Component({
   selector: 'app-board-column',
@@ -19,14 +20,16 @@ export class BoardColumnComponent implements OnInit {
   @Input() status: TaskStatus;
   @Input() filteredBoardTasks: BoardTask[] = [];
 
+  @ViewChild(BoardTaskCardComponent, { static: false }) taskCardComponent: BoardTaskCardComponent;
+
   constructor(
       private boardTaskService: BoardTaskService,
       private dialog: MatDialog
   ) { }
 
-  ngOnInit() {
-    this.getFilteredBoardTasks();
+  async ngOnInit() {
     this.subscribeToDataDeleter();
+    await this.getFilteredBoardTasks();
   }
 
   private async getFilteredBoardTasks(): Promise<void> {
@@ -37,7 +40,6 @@ export class BoardColumnComponent implements OnInit {
   private subscribeToDataDeleter(): void {
     this.boardTaskService.dataDeleter.subscribe(async () => {
       await this.getFilteredBoardTasks();
-      window.location.reload();
     });
   }
 
@@ -52,30 +54,48 @@ export class BoardColumnComponent implements OnInit {
           event.currentIndex
       );
 
-      const droppedTask: BoardTask = event.item.data;
+      const droppedTask: UpdateBoardTaskRequest = event.item.data;
       droppedTask.status = this.status;
 
       const indexToReplace = this.filteredBoardTasks.findIndex(task => task.id === droppedTask.id);
-      this.filteredBoardTasks[indexToReplace] = droppedTask;
+      this.filteredBoardTasks[indexToReplace] = {...droppedTask, userId: droppedTask.user.id};
 
-      await this.boardTaskService.updateBoardTask(droppedTask.id, droppedTask);
+      await this.boardTaskService.updateBoardTask(droppedTask);
     }
   }
 
   onCreateButtonClick(): void {
-    const dialogRef = this.dialog.open(CreateTaskCardComponent, {
+    if (this.dialog.openDialogs.length) {
+      return;
+    }
+
+    const dialogRef = this.dialog.open(CreateTaskCardComponent, this.getDialogConfig(this.status, {}));
+
+    dialogRef.afterClosed().subscribe(async () => {
+      await this.getFilteredBoardTasks();
+    });
+  }
+
+  onUpdateButtonClick(task: BoardTask) {
+    if (this.dialog.openDialogs.length) {
+      return;
+    }
+
+    const dialogRef = this.dialog.open(UpdateTaskCardComponent, this.getDialogConfig(task.status, {...task}));
+
+    dialogRef.afterClosed().subscribe(async () => {
+      await this.getFilteredBoardTasks();
+    });
+  }
+
+  private getDialogConfig(status: TaskStatus, data: any) {
+    return {
       maxWidth: '650px',
       position: {
-        top: "15%",
-        left: "33%"
+        top: '15%',
+        left: '33%'
       },
-      data: {
-        status: this.status
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.getFilteredBoardTasks();
-    });
+      data: { ...data, status }
+    };
   }
 }

@@ -12,12 +12,11 @@ import { User } from "../../models/users/user.model";
 export class BoardTaskCardComponent implements OnInit {
   @Input() task: BoardTask;
   user: User;
-  loading: boolean = false;
 
   constructor(
       private boardTaskService: BoardTaskService,
-      private userService: UserService
-  ) {}
+      private userService: UserService,
+  ) { }
 
   async ngOnInit() {
     if (this.task.userId !== null && this.task.userId !== undefined) {
@@ -31,9 +30,5 @@ export class BoardTaskCardComponent implements OnInit {
 
   async deleteBoardTask(): Promise<void> {
     await this.boardTaskService.deleteBoardTask(this.task.id);
-  }
-
-  get assigneeName(): string {
-    return this.user ? this.user.name : 'N/A';
   }
 }

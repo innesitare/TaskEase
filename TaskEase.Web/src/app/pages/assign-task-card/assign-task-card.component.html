@@ -1,0 +1,37 @@
+<div class="assign-task-card">
+    <svg
+            class="assign-task-card-title-header"
+            width="220"
+            height="25"
+            viewBox="0 0 258 35"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+                d="M24 21.2154L19.8099 17.0253C20.8167 15.8165 21.3188 14.2661 21.2117 12.6966C21.1045 11.1271 20.3964 9.65928 19.2346 8.59855C18.0728 7.53783 16.5468 6.96584 14.9741 7.00158C13.4013 7.03732 11.9028 7.67803 10.7904 8.79044C9.67803 9.90284 9.03732 11.4013 9.00158 12.9741C8.96584 14.5468 9.53783 16.0728 10.5986 17.2346C11.6593 18.3964 13.1271 19.1045 14.6966 19.2117C16.2661 19.3188 17.8165 18.8167 19.0253 17.8099L23.2154 22L24 21.2154ZM10.1293 13.1227C10.1293 12.1351 10.4222 11.1697 10.9708 10.3485C11.5195 9.52736 12.2994 8.88734 13.2118 8.5094C14.1243 8.13145 15.1283 8.03257 16.0969 8.22524C17.0656 8.41791 17.9553 8.8935 18.6537 9.59184C19.352 10.2902 19.8276 11.1799 20.0203 12.1486C20.2129 13.1172 20.114 14.1212 19.7361 15.0337C19.3582 15.9461 18.7181 16.726 17.897 17.2747C17.0758 17.8233 16.1104 18.1162 15.1227 18.1162C13.7989 18.1147 12.5296 17.5882 11.5935 16.652C10.6573 15.7159 10.1308 14.4466 10.1293 13.1227Z"
+                fill="black"
+                fill-opacity="0.7"
+                transform="scale(2.2)"
+        />
+    </svg>
+    <input
+            type="text"
+            class="assign-task-card-input-text"
+            minlength="1"
+            maxlength="15"
+            [(ngModel)]="name"
+            (ngModelChange)="onFilterChange()"
+    />
+    <div class="scrollable-list">
+        <div *ngFor="let user of filteredUsers">
+            <div class="searched-user">
+                <input type="checkbox" [(ngModel)]="user.isSelected" (change)="onUserSelectionChange(user)">
+                <div class="user-details">
+                    <div class="search-username">{{user.name}}</div>
+                    <div class="searched-user-full-name">{{user.lastName}}</div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>

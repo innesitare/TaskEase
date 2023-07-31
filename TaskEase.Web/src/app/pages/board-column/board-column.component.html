@@ -12,12 +12,12 @@
      [cdkDropListData]="filteredBoardTasks"
      (cdkDropListDropped)="drop($event)">
     <div *ngFor="let task of filteredBoardTasks" cdkDrag [cdkDragData]="task">
-        <app-board-task-card [task]="task"></app-board-task-card>
+        <app-board-task-card [task]="task" (click)="onUpdateButtonClick(task)"></app-board-task-card>
     </div>
-    <div class="board-task-card-add">
+    <div class="board-task-card-add" (click)="onCreateButtonClick()">
         <div class="board-task-card-add-details">
             <div class="board-task-card-add-title">
-                <span class="board-task-card-add-title-text" (click)="onCreateButtonClick()">+</span>
+                <span>+</span>
             </div>
         </div>
     </div>

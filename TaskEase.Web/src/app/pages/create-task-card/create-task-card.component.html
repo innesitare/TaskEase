@@ -16,8 +16,21 @@
         </svg>
         <div class="create" (click)="createNewBoardTask()">Create</div>
     </div>
-    <input type="text" class="input" [(ngModel)]="request.title" />
-    <textarea placeholder class="input2" [(ngModel)]="request.description"></textarea>
+    <input
+            type="text"
+            class="input"
+            minlength="1"
+            maxlength="50"
+            placeholder="Title"
+            [(ngModel)]="request.title"
+    />
+    <textarea
+            class="input2"
+            minlength="1"
+            maxlength="300"
+            placeholder="Description"
+            [(ngModel)]="request.description">
+    </textarea>
     <div class="task-owner">
         <div class="owner-icon">
             <svg
@@ -47,7 +60,7 @@
                 </g>
             </svg>
         </div>
-        <div class="owner-name">Empty</div>
+        <div class="owner-name">N/A</div>
     </div>
     <div class="vertical-rectangle-{{request.status}}"></div>
 </div>

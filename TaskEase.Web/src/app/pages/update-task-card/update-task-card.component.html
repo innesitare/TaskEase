@@ -1,0 +1,67 @@
+<div class="update-task-card">
+    <div>
+        <div class="update-task-card-owner">
+            <div class="update-task-card-owner-icon">
+                <svg
+                        class="icon"
+                        width="12"
+                        height="15"
+                        viewBox="0 0 12 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                    <g opacity="0.8">
+                        <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M1.59251 11.0502H10.2293L12 4.46177L8.87837 5.85717L5.92362 0.5L3.41188 5.7751L0 4.46177L1.59251 11.0502Z"
+                                fill="#F4C550"
+                                stroke="#EE9241"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                        />
+                        <path
+                                d="M2.44745 13.3953H9.44003"
+                                stroke="#F2A867"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                        />
+                    </g>
+                </svg>
+            </div>
+            <div class="update-task-card-owner-name" (click)="onToggleAssignTaskCard()">
+                {{ request.user ? request.user.name : 'N/A' }}
+            </div>
+        </div>
+        <div>
+            <input
+                    type="text"
+                    class="update-task-card-title"
+                    minlength="1"
+                    maxlength="50"
+                    [(ngModel)]="request.title" />
+            <textarea
+                    class="update-task-card-description"
+                    minlength="1"
+                    maxlength="300"
+                    [(ngModel)]="request.description">
+        </textarea>
+            <svg
+                    class="update-task-card-button-background"
+                    width="565"
+                    height="31"
+                    viewBox="0 0 565 31"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                        d="M0 5C0 2.23858 2.23858 0 5 0H560C562.761 0 565 2.23858 565 5V26C565 28.7614 562.761 31 560 31H5C2.23858 31 0 28.7614 0 26V5Z"
+                        fill="white"
+                />
+            </svg>
+            <div class="update-task-card-button-text" (click)="onApplyClick()">Apply</div>
+            <div class="vertical-rectangle-{{request.status}}"></div>
+        </div>
+    </div>
+    <app-assign-task-card *ngIf="showAssignTaskCard" [task]="request"></app-assign-task-card>
+</div>
