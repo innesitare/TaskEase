@@ -11,13 +11,13 @@ internal sealed class UpdateBoardTaskRequestValidator : AbstractValidator<Update
             .NotNull()
             .NotEmpty()
             .WithMessage("Title is required.")
-            .Length(1, 100).WithMessage("Title must be between 1 and 50 characters.");
+            .Length(1, 50).WithMessage("Title must be between 1 and 50 characters.");
             
         RuleFor(x => x.Description)
             .NotNull()
             .NotEmpty()
             .WithMessage("Description is required.")
-            .Length(1, 200).WithMessage("Description must be between 1 and 300 characters.");
+            .Length(1, 300).WithMessage("Description must be between 1 and 300 characters.");
 
         RuleFor(x => x.Status)
             .IsInEnum()

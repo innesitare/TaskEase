@@ -5,6 +5,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { TaskStatus } from '../../models/board-tasks/task-status.model';
 import { BoardTask } from '../../models/board-tasks/board-task.model';
 import { BoardTaskService } from '../../services/board-task.service';
+import { UserService } from "../../services/user.service";
 import { CreateTaskCardComponent } from '../create-task-card/create-task-card.component';
 import { UpdateBoardTaskRequest } from '../../models/requests/board-tasks/update-board-task-request.model';
 import { UpdateTaskCardComponent } from '../update-task-card/update-task-card.component';
@@ -23,6 +24,7 @@ export class BoardColumnComponent implements OnInit {
   @ViewChild(BoardTaskCardComponent, { static: false }) taskCardComponent: BoardTaskCardComponent;
 
   constructor(
+      private userService: UserService,
       private boardTaskService: BoardTaskService,
       private dialog: MatDialog
   ) { }
@@ -47,21 +49,22 @@ export class BoardColumnComponent implements OnInit {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      transferArrayItem (
+      transferArrayItem(
           event.previousContainer.data,
           event.container.data,
           event.previousIndex,
           event.currentIndex
       );
-
-      const droppedTask: UpdateBoardTaskRequest = event.item.data;
-      droppedTask.status = this.status;
-
-      const indexToReplace = this.filteredBoardTasks.findIndex(task => task.id === droppedTask.id);
-      this.filteredBoardTasks[indexToReplace] = {...droppedTask, userId: droppedTask.user.id};
-
-      await this.boardTaskService.updateBoardTask(droppedTask);
     }
+
+    const droppedTask: UpdateBoardTaskRequest = {
+      ...event.item.data,
+      status: this.status,
+      user: event.item.data.userId !== null ? await this.userService.getUserById(event.item.data.userId) : null
+    };
+
+    this.mapAndFilterTasks(droppedTask);
+    await this.boardTaskService.updateBoardTask(droppedTask);
   }
 
   onCreateButtonClick(): void {
@@ -86,6 +89,12 @@ export class BoardColumnComponent implements OnInit {
     dialogRef.afterClosed().subscribe(async () => {
       await this.getFilteredBoardTasks();
     });
+  }
+
+  private mapAndFilterTasks(updatedTask: UpdateBoardTaskRequest) {
+    this.filteredBoardTasks = this.filteredBoardTasks
+        .map((task) => (task.id === updatedTask.id ? updatedTask : task))
+        .filter((task): task is BoardTask => task.hasOwnProperty('userId'));
   }
 
   private getDialogConfig(status: TaskStatus, data: any) {

@@ -6,5 +6,5 @@ export interface UpdateBoardTaskRequest {
     title: string;
     description: string;
     status: TaskStatus;
-    user: User;
+    user: User | null;
 }

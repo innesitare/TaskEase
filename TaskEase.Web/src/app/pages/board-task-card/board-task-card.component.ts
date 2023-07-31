@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BoardTask } from "../../models/board-tasks/board-task.model";
 import { BoardTaskService } from "../../services/board-task.service";
 import { UserService } from "../../services/user.service";
