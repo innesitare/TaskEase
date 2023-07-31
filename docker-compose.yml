@@ -2,28 +2,28 @@
 services:
   taskease.apigateway:
     container_name: api-gateway
-    image: plaam/taskease-api-gateway:1.0.7
+    image: plaam/taskease-api-gateway:1.1.0
     build:
       context: .
       dockerfile: TaskEase.ApiGateway/Dockerfile
 
   taskease.identityapi:
     container_name: identity-api
-    image: plaam/taskease-identity-api:1.1.5
+    image: plaam/taskease-identity-api:1.2.0
     build:
       context: .
       dockerfile: TaskEase.IdentityApi/Dockerfile
 
   taskease.boardtasksapi:
     container_name: board-tasks-api
-    image: plaam/taskease-board-tasks-api:1.1.5
+    image: plaam/taskease-board-tasks-api:1.2.0
     build:
       context: .
       dockerfile: TaskEase.BoardTasksApi/Dockerfile
 
   taskease.usersapi:
     container_name: users-api
-    image: plaam/taskease-users-api:1.1.5
+    image: plaam/taskease-users-api:1.2.0
     build:
       context: .
       dockerfile: TaskEase.UsersApi/Dockerfile

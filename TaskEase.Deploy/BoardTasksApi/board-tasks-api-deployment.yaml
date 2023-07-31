@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: board-tasks-api
-          image: plaam/taskease-board-tasks-api:1.1.4
+          image: plaam/taskease-board-tasks-api:1.2.0
           imagePullPolicy: Always
           ports:
             - containerPort: 80
